@@ -10,13 +10,20 @@ class PlacesController < ApplicationController
   end
 
   def new
+
   end
 
   def create
-    @place = Place.new
-    @place["name"] = params["name"]
-    @place.save
-    redirect_to "/places"
+    @user = User.find_by({ "id" => session["user_id"] })
+    if @user != nil
+      @place = Place.new
+      @place["name"] = params["name"]
+      @place.save
+      redirect_to "/places"
+    else
+     flash["notice"] = "Login first."
+     redirect_to "/login"
+    end
   end
 
 end
