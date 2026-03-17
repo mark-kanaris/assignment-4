@@ -1,4 +1,10 @@
-<h1>Places</h1>
+
+<% @user = User.find_by({ "id" => session["user_id"] }) %>
+
+
+
+<% if @user != nil %>
+<h1>Places seen by: </h1> <p> <%= @user["username"] %> </p>
 
 <ul>
   <% for place in @places %>
@@ -7,5 +13,10 @@
 </ul>
 
 <p>
-  <a href="/places/new">New place</a>
+  <a href="/places/new">Add a destination</a>
 </p>
+
+
+<% else %>
+  Click here to <a href="/login">login</a>.
+<% end %>
