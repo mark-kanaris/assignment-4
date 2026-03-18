@@ -1,8 +1,10 @@
 <% @user = User.find_by({ "id" => session["user_id"] }) %>
 
-<h1>My Entries at <%= @place["name"] %> </h1>
+
+
+<h1><%= @user["username"]%>'s entries @ <%= @place["name"] %> </h1>
 <p>
-  <a href="/entries/new?place_id=<%= @place["id"] %>">New Entry</a>
+  <a href="/entries/new?place_id=<%= @place["id"] %>" class="btn btn-success">New Entry</a>
 </p>
 
 <div class="row">
@@ -24,5 +26,5 @@
 </div>
 
 <p>
-  <a href="/places">Back to All Places</a>
+  <a href="/places" class="btn btn-light">Back to All Places</a>
 </p>

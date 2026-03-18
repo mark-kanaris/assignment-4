@@ -4,7 +4,7 @@
 
 
 <% if @user != nil %>
-<h1>Places seen by: </h1> <p> <%= @user["username"] %> </p>
+<h1> <%= @user["username"] %>, these are the places you've been:</h1> 
 
 <ul>
   <% for place in @places %>
